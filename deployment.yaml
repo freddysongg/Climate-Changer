@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: climate-analyzer-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: climate-analyzer
+  template:
+    metadata:
+      labels:
+        app: climate-analyzer
+    spec:
+      securityContext:
+        fsGroup: 0 
+      containers:
+      - name: climate-analyzer
+        image: climate-analyzer:latest
+        command: ["Rscript", "data_analysis.R"]
+        securityContext:
+          runAsUser: 0
+          runAsGroup: 0
+        volumeMounts:
+        - name: data-volume
+          mountPath: "/usr/src/app/data"
+      volumes:
+      - name: data-volume
+        hostPath:
+          path: /Users/freddy/Documents/ClimateChanger/Climate-Changer/data
+          type: DirectoryOrCreate
