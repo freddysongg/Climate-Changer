@@ -37,21 +37,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libjpeg-dev \
     pkg-config \
     zlib1g-dev \
+    vim nano curl \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Set the working directory
 WORKDIR /app
 
-# Install R packages
-RUN R -e "install.packages('tidyverse', repos='http://cran.r-project.org', dependencies=TRUE)"
-
-# Copy requirements file
-COPY requirements.txt /app/
-
-# Install Python dependencies as root
-USER root
-RUN python -m pip install --upgrade pip \
-    && python -m pip install --no-cache-dir -r /app/requirements.txt
+# Install R packages from CRAN
+RUN R -e "install.packages(c('tidyverse', 'ggplot2', 'gridExtra', 'corrplot', 'reshape2', 'scales', 'cowplot'), repos='https://cran.r-project.org', dependencies=TRUE)"
 
 # Copy source code
 COPY . .
@@ -59,5 +52,5 @@ COPY . .
 # Expose the port
 EXPOSE 8000
 
-# Run the R script
-CMD ["Rscript", "data_analysis.R"]
+# Run the visualization script
+CMD ["Rscript", "data_visualization.R"]
