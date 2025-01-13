@@ -1,33 +1,102 @@
 # Climate Changer Project
 
-This project processes and analyzes climate data using an R script. It leverages Docker and Kubernetes for containerized deployment and scalability.
+This project processes and analyzes climate data using R, leveraging Docker and Kubernetes for scalable deployment. Through detailed visualizations and analysis, it explores correlations between environmental factors and CO2 emissions.
 
 ---
 
 ## Overview
 
-The Climate Changer project automates climate data processing and analysis with the following key components:
+The Climate Changer project simplifies climate data analysis with the following components:
 
-- **R Script**: Processes climate data and outputs clean datasets.
+- **R Script**: Processes climate data and generates visualizations.
 - **Docker**: Containerizes the application for portability.
-- **Kubernetes**: Manages application deployment, scaling, and orchestration.
+- **Kubernetes**: Manages deployment and scaling.
+- **Data Visualization**: Produces detailed insights into climate dynamics.
 
 ---
 
 ## Objectives
 
-- Simplify climate data analysis.
-- Ensure scalability and portability using modern containerization and orchestration technologies.
-- Enable seamless integration and deployment for users.
+- Analyze the relationship between urbanization, energy usage, and CO2 emissions.
+- Provide clear visual insights for policy-makers and researchers.
+- Ensure scalability using modern containerization and orchestration technologies.
 
 ---
 
-## Features
+## Key Insights
 
-- Data processing via an R script.
-- Containerized deployment using Docker.
-- Scalable deployment with Kubernetes.
-- Persistent data storage and easy access to processed results.
+### 1. **Urban Population vs CO2 Emissions**
+- **Visualization**: [Urban Population vs Total CO2 Emissions](output/urban_population_vs_co2.pdf)
+- **Analysis**:
+  - **Description**: The graph shows how urban population correlates with CO2 emissions.
+  - **Insights**: 
+    - Higher urban populations often lead to increased CO2 emissions.
+    - Certain countries with rapid urbanization exhibit disproportionately high emissions.
+
+---
+
+### 2. **Energy Use Efficiency vs CO2 Emissions**
+- **Visualization**: [Energy Efficiency vs CO2](output/energy_efficiency_vs_co2.pdf)
+- **Analysis**:
+  - **Description**: Relationship between energy use per GDP and total CO2 emissions.
+  - **Insights**: 
+    - Countries with low energy efficiency (higher energy use per GDP) tend to emit more CO2.
+    - Economic reforms targeting energy efficiency could mitigate emissions.
+
+---
+
+### 3. **Methane Emissions vs CO2 Emissions**
+- **Visualization**: [Methane vs CO2](output/methane_vs_co2.pdf)
+- **Analysis**:
+  - **Description**: Correlation between methane emissions and total CO2 emissions.
+  - **Insights**:
+    - Methane-heavy economies (agriculture, livestock) exhibit higher CO2 emissions.
+    - Policies targeting methane reduction could have dual benefits.
+
+---
+
+### 4. **Protected Areas vs CO2 Emissions**
+- **Visualization**: [Protected Areas vs CO2](output/protected_areas_vs_co2.pdf)
+- **Analysis**:
+  - **Description**: Examines how protected land areas influence CO2 emissions.
+  - **Insights**:
+    - Countries with larger protected areas show varied CO2 emission trends.
+    - Suggests a need for integrated conservation and emission policies.
+
+---
+
+### 5. **Urban Population and CO2 Emissions Over Time**
+- **Visualization**: [Urban Population and CO2 Over Time](output/time_series_urban_vs_co2.pdf)
+- **Analysis**:
+  - **Description**: Time series plot showing trends in urbanization and CO2 emissions.
+  - **Insights**:
+    - Both urban population and CO2 emissions have steadily increased since the 1990s.
+    - Highlights the need for sustainable urban planning.
+
+---
+
+## Technologies Used
+
+- **R Programming**: For data cleaning, processing, and visualization.
+- **Docker**: Ensures application portability and consistency.
+- **Kubernetes**: Provides scalable deployment and orchestration.
+- **ggplot2**: Creates visually appealing and informative plots.
+- **corrplot**: Generates correlation matrices for data exploration.
+
+---
+
+## Directory Structure
+
+```plaintext
+Climate-Changer/
+├── output/                    # Folder containing generated visualizations
+├── data/                      # Data folder (mapped to container's /app/data)
+├── Dockerfile                 # Docker build file
+├── deployment.yaml            # Kubernetes deployment configuration
+├── compose.yaml               # Docker Compose file
+├── data_analysis.R            # R script for data analysis
+├── README.md                  # Project documentation
+```
 
 ---
 
@@ -119,43 +188,6 @@ The processed climate data is saved in the `data/` directory inside the containe
    ```bash
    kubectl cp <pod-name>:/app/data ./data
    ```
-
----
-
-## Directory Structure
-
-```plaintext
-Climate-Changer/
-├── data/                      # Data folder (mapped to container's /app/data)
-├── Dockerfile                 # Docker build file
-├── deployment.yaml            # Kubernetes deployment configuration
-├── compose.yaml               # Docker Compose file
-├── data_analysis.R            # R script for data analysis
-├── README.md                  # Project documentation
-```
-
----
-
-## Additional Notes
-
-### Error Handling
-- Ensure all required R libraries are installed in the Docker image if the application fails to start.
-- Debug errors by viewing the logs:
-  ```bash
-  kubectl logs <pod-name>
-  ```
-
-### Scaling the Application
-- To scale the application, update the `replicas` field in the `deployment.yaml` file:
-  ```yaml
-  replicas: <desired-number-of-replicas>
-  ```
-
-### Environment Variables
-- Add necessary environment variables in `deployment.yaml` to configure the application dynamically.
-
-### Persistent Storage
-- Mount a persistent volume in Kubernetes to store processed data long-term.
 
 ---
 
