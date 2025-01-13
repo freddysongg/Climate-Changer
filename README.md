@@ -26,7 +26,7 @@ The Climate Changer project simplifies climate data analysis with the following 
 ## Key Insights
 
 ### 1. **Urban Population vs CO2 Emissions**
-- **Visualization**: [Urban Population vs Total CO2 Emissions](output/urban_population_vs_co2.pdf)
+![Urban Population vs CO2 Emissions](output/urban_population_vs_co2.png "Urban Population vs CO2 Emissions")
 - **Analysis**:
   - **Description**: The graph shows how urban population correlates with CO2 emissions.
   - **Insights**: 
@@ -36,7 +36,7 @@ The Climate Changer project simplifies climate data analysis with the following 
 ---
 
 ### 2. **Energy Use Efficiency vs CO2 Emissions**
-- **Visualization**: [Energy Efficiency vs CO2](output/energy_efficiency_vs_co2.pdf)
+![Energy Efficiency vs CO2 Emissions](output/energy_efficiency_vs_co2.png "Energy Efficiency vs CO2 Emissions")
 - **Analysis**:
   - **Description**: Relationship between energy use per GDP and total CO2 emissions.
   - **Insights**: 
@@ -46,7 +46,7 @@ The Climate Changer project simplifies climate data analysis with the following 
 ---
 
 ### 3. **Methane Emissions vs CO2 Emissions**
-- **Visualization**: [Methane vs CO2](output/methane_vs_co2.pdf)
+![Methane vs CO2 Emissions](output/methane_vs_co2.png "Methane vs CO2 Emissions")
 - **Analysis**:
   - **Description**: Correlation between methane emissions and total CO2 emissions.
   - **Insights**:
@@ -56,7 +56,7 @@ The Climate Changer project simplifies climate data analysis with the following 
 ---
 
 ### 4. **Protected Areas vs CO2 Emissions**
-- **Visualization**: [Protected Areas vs CO2](output/protected_areas_vs_co2.pdf)
+![Protected Areas vs CO2 Emissions](output/protected_areas_vs_co2.png "Protected Areas vs CO2 Emissions")
 - **Analysis**:
   - **Description**: Examines how protected land areas influence CO2 emissions.
   - **Insights**:
@@ -66,7 +66,7 @@ The Climate Changer project simplifies climate data analysis with the following 
 ---
 
 ### 5. **Urban Population and CO2 Emissions Over Time**
-- **Visualization**: [Urban Population and CO2 Over Time](output/time_series_urban_vs_co2.pdf)
+![Urban Population and CO2 Emissions Over Time](output/time_series_urban_vs_co2.png "Urban Population and CO2 Emissions Over Time")
 - **Analysis**:
   - **Description**: Time series plot showing trends in urbanization and CO2 emissions.
   - **Insights**:
